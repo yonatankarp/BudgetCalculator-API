@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - 11.0.0
+
+script:
+  - npm install -g @stoplight/spectral
+  - spectral lint ./api/*/*.yaml

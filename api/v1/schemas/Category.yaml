@@ -1,0 +1,19 @@
+Category:
+  properties:
+    id:
+      type: integer
+      description: The identifier of this category.
+      example: 1568
+      minimum: 0
+    name:
+      type: string
+      description: A descriptive name of this category.
+      example: "Groceries"
+    vendors:
+      type: array
+      items:
+        $ref: './Vendor.yaml'
+
+  required:
+    - id
+    - name

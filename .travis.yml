@@ -4,4 +4,13 @@ node_js:
 
 script:
   - npm install -g @stoplight/spectral
-  - spectral lint ./api/*/*.yaml
+  - npm install -g speccy
+
+  # We're iterating over all the versions of the API and combining each definition into a single .yaml file
+  # (as the linter does not work properly with multiple files), and then we're validating each of the definitions schemas.
+  - |
+    cd ./api
+    for d in *; do
+      speccy resolve $d/index.yaml > index-$d.yaml
+      spectral lint index-$d.yaml
+    done

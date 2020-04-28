@@ -1,0 +1,117 @@
+parameters:
+- in: path
+  name: category_id
+  schema:
+    type: integer
+  required: true
+  description: The identifier of the category.
+
+- in: path
+  name: vendor_id
+  schema:
+    type: integer
+  required: true
+  description: The identifier of the vendor.
+
+post:
+  summary: Create new vendor.
+  description: Creates a new vendor under the given category for the connected user.
+
+  tags:
+    - vendors
+
+  operationId: createVendor
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          x-miro: '../schemas/api/VendorCreate.yaml#/VendorCreateRequest'
+
+  responses:
+    "201":
+      description: Category succesfully created.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/api/VendorCreate.yaml#/VendorCreateResponse'
+
+    "400":
+      description: Could not create vendor.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+put:
+  summary: Update an existing vendor.
+  description: Update an existing vendor under the given category for the connected user.
+
+  tags:
+    - vendors
+
+  operationId: updateVendorById
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          x-miro: '../schemas/api/VendorUpdate.yaml#/VendorUpdateRequest'
+
+  responses:
+    "201":
+      description: Category succesfully created.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/api/VendorUpdate.yaml#/VendorUpdateResponse'
+
+    "400":
+      description: Could not create vendor.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+delete:
+  summary: Delete an existing vendor.
+  description: Deletes an existing vendor from a given category for the connected user.
+
+  tags:
+    - vendors
+
+  operationId: deleteVendorById
+
+  responses:
+    "204":
+      description: Category succesfully created.
+
+    "400":
+      description: Could not create vendor.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'

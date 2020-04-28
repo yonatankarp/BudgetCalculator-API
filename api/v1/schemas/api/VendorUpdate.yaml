@@ -1,0 +1,5 @@
+VendorUpdateRequest:
+  $ref: '../Vendor.yaml'
+
+VendorUpdateResponse:
+  $ref: '../Vendor.yaml'

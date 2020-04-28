@@ -1,0 +1,61 @@
+get:
+  summary: Gets all the categories of this user.
+  description: Returns a list containing all caetgories that this user have.
+
+  tags:
+    - categories
+
+  operationId: getCategories
+
+  responses:
+    "200":
+      description: A list of Category
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Category.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+post:
+  summary: Creates a new category.
+  description: Adds a new category to the user list.
+
+  tags:
+    - categories
+
+  operationId: createCategory
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          x-miro: '../schemas/api/CategoryCreate.yaml#/CategoryCreateRequest'
+
+  responses:
+    "201":
+      description: Category succesfully created.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/api/CategoryCreate.yaml#/CategoryCreateResponse'
+
+    "400":
+      description: Could not create new category.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'

@@ -1,0 +1,5 @@
+CategoryCreateRequest:
+  $ref: '../Category.yaml'
+
+CategoryCreateResponse:
+  $ref: '../Category.yaml'

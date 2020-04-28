@@ -1,0 +1,15 @@
+Vendor:
+  properties:
+    id:
+      type: integer
+      description: The identifier of this vendor.
+      example: 1244
+      minimum: 0
+    name:
+      type: string
+      description: A descriptive name of this vendor.
+      example: "REVE"
+
+  required:
+    - id
+    - name

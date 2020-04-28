@@ -1,0 +1,5 @@
+VendorCreateRequest:
+  $ref: '#../Vendor.yaml'
+
+VendorCreateResponse:
+  $ref: '#../Vendor.yaml'

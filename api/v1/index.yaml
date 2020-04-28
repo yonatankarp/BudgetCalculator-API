@@ -1,0 +1,44 @@
+openapi: 3.0.3
+info:
+  title: Budget Calculator API
+  description: The API that is used by the Budget Calculator project.
+  version: 0.1.0
+
+  contact:
+    name: Budget Calculator Team
+    url: https://github.com/yonatankarp/BudgetCalculator-API
+
+servers:
+  - url: https://budgetcalculator-live.herokuapp.com/api/v1
+    description: Production
+  - url: https://budgetcalculator-stage.herokuapp.com/api/v1
+    description: Stage
+  - url: https://localhost:8080/api/v1
+    description: Local
+
+tags:
+  - name: categories
+    description: All CRUD actions that are connected to categories
+  - name: vendors
+    description: All CRUD available actions that are connected to vendors
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []
+
+paths:
+  /categories:
+    $ref: "./api/Categories/Categories.yaml"
+
+  /categories/{category_id}:
+    $ref: "./api/Categories/CategoriesById.yaml"
+
+  /categories/{category_id}/vendors/{vendor_id}:
+    $ref: "./api/Vendors/VendorsById.yaml"
+

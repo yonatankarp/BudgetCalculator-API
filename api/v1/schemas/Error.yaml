@@ -1,0 +1,21 @@
+Error:
+  type: object
+  properties:
+    code:
+      type: string
+      description: Machine readable code of the error.
+      example: "NOT_FOUND"
+
+    message:
+      type: string
+      description: A Human readable error message.
+      example: "Couldn't find category with id 126559"
+
+    details:
+      type: string
+      description: Unstructured additional data to give more details to this error.
+      example: "{}"
+
+  required:
+    - code
+    - message

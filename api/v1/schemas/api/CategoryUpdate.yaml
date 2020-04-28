@@ -1,0 +1,5 @@
+CategoryUpdateRequest:
+  $ref: '../Category.yaml'
+
+CategoryUpdateResponse:
+  $ref: '../Category.yaml'

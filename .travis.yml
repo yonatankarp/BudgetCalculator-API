@@ -4,4 +4,12 @@ node_js:
 
 script:
   - npm install -g @stoplight/spectral
-  - spectral lint ./api/*/*.yaml
+  - npm install -g speccy
+#  - spectral lint ./api/*/*.yaml
+
+  - |
+    cd ./api
+    for d in *; do
+      speccy resolve $d/index.yaml > index-$d.yaml
+      spectral lint index-$d.yaml
+    done

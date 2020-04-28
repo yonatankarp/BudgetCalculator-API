@@ -1,0 +1,72 @@
+parameters:
+  - in: path
+    name: category_id
+    schema:
+      type: integer
+    required: true
+    description: The identifier of the category.
+
+put:
+  summary: Update an existing category.
+  description: Allows the user to update an existing category.
+
+  tags:
+    - categories
+
+  operationId: getCategoryById
+
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          x-miro: '../schemas/api/CategoryUpdate.yaml#/CategoryUpdateRequest'
+
+  responses:
+    "200":
+      description: Category succesfully created.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/api/CategoryUpdate.yaml#/CategoryUpdateResponse'
+
+    "400":
+      description: Could not update category.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+delete:
+  summary: Delete an existing category.
+  description: Allows the user to delete existing category.
+
+  tags:
+    - categories
+
+  operationId: deleteCategoryById
+
+  responses:
+    "204":
+      description: Category succesfully created.
+
+    "400":
+      description: Could not update category.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
+
+    "500":
+      description: Internal server error.
+      content:
+        application/json:
+          schema:
+            x-miro: '../schemas/Error.yaml'
